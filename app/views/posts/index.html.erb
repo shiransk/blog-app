@@ -1,0 +1,11 @@
+<h1>Shiran Sport Blog</h1>
+<% @posts.each do |post| %>
+  <ul>
+      <li>posts user name: <%= post.user.name %></li>
+      <li>posts name: <%= post.name %></li>
+      <% if current_user %>
+      <li>posts name: <%= post.post_text %></li>
+      <li><%= link_to 'Read Post', "/posts/#{post.id}" %></li>
+      <% end %>
+  </ul>
+<% end %>

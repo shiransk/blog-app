@@ -7,8 +7,9 @@ class UsersController < ApplicationController
   def create
     user = User.new(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     if user.save
+      session[:user_id] = user.id
       flash[:success] = "User created"
-      redirect_to '/sessions/login'
+      redirect_to '/'
     else
       flash[:danger] = "User not created"
       redirect_to '/sessions/login'
