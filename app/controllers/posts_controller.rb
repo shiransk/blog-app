@@ -11,6 +11,8 @@ class PostsController < ApplicationController
   def create
     post = Post.new(name: params[:name], post_text: params[:post_text], user_id: params[:user_id])
     if post.save
+      cp = Cp.new(post_id: post.id, category_id: params[:category][:category_id])
+      cp.save
       flash[:success] = "post has been posted!"
       redirect_to '/'
     else

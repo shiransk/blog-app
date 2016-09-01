@@ -15,6 +15,12 @@
   <div>
     <%= hidden_field_tag :user_id, current_user.id %>
   </div>
+  
+  <div>   
+  <%=collection_select  :category , :category_id , Category.all , :id , :name  %>
+  </div>
+
+  
 
   <%= submit_tag %>
  <% end %>

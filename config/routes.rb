@@ -22,7 +22,8 @@ delete '/posts/:id', to: 'posts#destroy'
 #category 
 get '/categories/index', to: 'categories#index'
 get '/categories/new', to: 'categories#new'
-patch '/categories', to: 'categories#create'
+post '/categories', to: 'categories#create'
+get '/categories/:id', to: 'categories#show'
 
 
 end
